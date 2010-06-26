@@ -3,7 +3,6 @@ package Proc::Info::Environment;
 ###########################################
 use strict;
 use warnings;
-use Log::Log4perl qw(:easy);
 
 our $VERSION = "0.01";
 
@@ -23,7 +22,7 @@ sub new {
     my $os = $OS_MAP{ $^O };
 
     if(! defined $os ) {
-        LOGDIE "OS $^O not supported";
+        die "OS $^O not supported";
     }
 
     my $subclass = "Proc::Info::Environment::$os";
@@ -35,14 +34,33 @@ sub new {
 }
 
 ###########################################
+sub os_not_supported_error_message {
+###########################################
+    return "OS $^O not supported (only " .
+           join(', ', sort keys %OS_MAP) .
+           " so far)";
+}
+
+###########################################
 sub os_supported {
 ###########################################
-
     if(exists $OS_MAP{ $^O } ) {
         return 1;
     }
 
     return 0;
+}
+
+###########################################
+sub error {
+###########################################
+    my($self, $error) = @_;
+
+    if(defined $error) {
+        $self->{error} = $error;
+    }
+
+    return $self->{error};
 }
 
 1;

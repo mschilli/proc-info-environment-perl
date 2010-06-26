@@ -3,7 +3,6 @@ package Proc::Info::Environment::Linux;
 ###########################################
 use strict;
 use warnings;
-use Log::Log4perl qw(:easy);
 use base qw(Proc::Info::Environment);
 
 ###########################################
@@ -12,13 +11,13 @@ sub env {
     my($self, $pid) = @_;
 
     if(!defined $pid) {
-        LOGDIE "Variable \$pid not defined";
+        die "Variable \$pid not defined";
     }
 
     my $file = "/proc/$pid/environ";
 
     if(! open FILE, "<$file") {
-        ERROR "Cannot open $file ($!)";
+        $self->error( "Cannot open $file ($!)" );
         return undef;
     }
 
@@ -31,7 +30,9 @@ sub env {
 
     for my $chunk (split /\0/, $data) {
         my($key, $value) = split /=/, $chunk, 2;
-        DEBUG "Found in env of pid=$pid: key=$key value=$value";
+
+        ###l4p DEBUG("Found in env of pid=$pid: key=$key value=$value");
+
         $found{ $key } = $value;
     }
 
