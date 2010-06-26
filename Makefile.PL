@@ -5,9 +5,9 @@
 use ExtUtils::MakeMaker;
 my $meta_merge = {
     META_MERGE => {
-        resources => {
-            repository => 'http://github.com//proc-info-environment-perl',
-        },
+      resources => {
+        repository => 'http://github.com/mschilli/proc-info-environment-perl',
+      },
     }
 };
 WriteMakefile(

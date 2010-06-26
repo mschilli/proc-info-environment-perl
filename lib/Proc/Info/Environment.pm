@@ -112,6 +112,12 @@ systems. On Linux, it will use the procfs file system mounted under /proc
 to get the information needed. It will read the file /proc/xxx/environ, 
 where xxx is the pid of the target process.
 
+To verify if Proc::Info::Environment supports your operating system, 
+run Proc::Info::Environment::os_supported(), which returns a true value
+if it is supported. If the OS is unsupported, the new() constructor will
+die() with an error message listing all currently supported operating 
+systems.
+
 The module's architecture allows for easy support of other systems, if
 you want support for one and know how the information is provided,
 drop me an email.

@@ -4,3 +4,4 @@ Makefile
 adm
 .cvsignore
 CVS
+MANIFEST.bak
