@@ -1,0 +1,24 @@
+######################################################################
+    Proc::Info::Environment 0.01
+######################################################################
+
+NAME
+    Proc::Info::Environment - blah blah blah
+
+SYNOPSIS
+        use Proc::Info::Environment;
+
+DESCRIPTION
+    Proc::Info::Environment blah blah blah.
+
+EXAMPLES
+      $ perl -MProc::Info::Environment -le 'print $foo'
+
+LEGALESE
+    Copyright 2010 by Mike Schilli, all rights reserved. This program is
+    free software, you can redistribute it and/or modify it under the same
+    terms as Perl itself.
+
+AUTHOR
+    2010, Mike Schilli <cpan@perlmeister.com>
+
